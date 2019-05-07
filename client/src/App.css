@@ -30,3 +30,16 @@
     transform: rotate(360deg);
   }
 }
+
+.container{
+  font-size: 1rem;
+  /* text-align: center; */
+  width: 70%;
+  height: 100vh;
+  padding: 1em;
+}
+
+.item{
+  padding: 10px;
+  margin: 10px;
+}
