@@ -4,8 +4,9 @@ import web3  from './web3/provider'
 import VoteForm from "./components/VoteForm"
 // import ResultView from "./components/ResultView"
 import AddressViewer from "./components/AddressViewer";
-import { Segment } from "semantic-ui-react"
+import { Segment, Header } from "semantic-ui-react"
 import "./App.css"
+import AddressForm from "./components/AddressForm";
 
 class App extends React.Component{
 
@@ -13,7 +14,10 @@ class App extends React.Component{
     contract : null,
     accounts:null,
     storageValue:null,
-    vote:""
+    vote:"",
+    voterAddress:"",
+    inspectorAddress:"",
+    end:false
   }
 
   componentDidMount = async () => {
@@ -40,35 +44,59 @@ class App extends React.Component{
     console.log("Response : ",this.state.storageValue)
   };
 
+  // 投票者アドレスでないといけない
   setVote = async(vote) => {
     //TODO: 下2行
-    // const { accounts, contract } = await this.state;
-    // await contract.methods.setVote(vote).send({from:accounts[0]})
+    const { accounts, contract } = await this.state;
+    await contract.methods.setVote(vote).send({from:accounts[0]})
     this.setState({vote:vote})
-    
+    // console.log(this.state.vote)
+    this.setState({end: true})
   }
 
+  // 運営者アドレスで実行
+  setVoterAddress = async(voterAddress) =>  {
+    const { accounts, contract } = await this.state;
+    await contract.methods.setVoterAddress(voterAddress).send({from:accounts[0]})
+  }
+
+  // 運営者アドレスで実行
+  setInspectorAddress = async(inspectorAddress) => {
+    const { accounts, contract } = await this.state;
+    await contract.methods.setInspectorAddress(inspectorAddress).send({from:accounts[0]})
+  }
+
+
+
   render() {
-    const {accounts, contract} = this.state
+    const {accounts, contract, vote, end} = this.state
     return (
       <div className="container">
+      <Header>
+        Voter Page
+      </Header>
         <Segment.Group>
-          <Segment className="item">
+          {/* <Segment className="item">
             <button onClick={() => this.runExample()}>SET</button>
             <p>test : {this.state.storageValue}</p>
-          </Segment>
+          </Segment> */}
           <Segment className="item">
             <AddressViewer contract={contract} address={accounts} role="Your"/>
           </Segment>
-          {/* <Segment className="item">
-            <AddressViewer contract={contract} address={accounts} role="Organizer"/>
-          </Segment> */}
           <Segment className="item">
             <VoteForm contract={contract} address={accounts} setVote={this.setVote}/>
+          </Segment>
+          <Segment>
+            <p>
+              Your Vote : {vote}
+            </p>
           </Segment>
           {/* <Segment className="item">
             <ResultView contract={contract} address={accounts} />
           </Segment> */}
+          <Segment>
+            {/* {end} ? <p></p> : <p>Submitted ! </p> */}
+          </Segment>
         </Segment.Group>
 
       </div>

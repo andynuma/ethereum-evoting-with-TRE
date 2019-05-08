@@ -12,7 +12,8 @@ const VoteForm = ({address,contract,setVote}) => {
   const handleSubmit = (e) =>  {
     e.preventDefault()
     // setVote(vote) // contract.methods
-    console.log("submit")
+    setVote(vote)
+    console.log("submit : ", vote)
   }
 
   const handleChange = (e) => {

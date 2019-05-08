@@ -4,18 +4,42 @@ contract("Sample", accounts => {
 
   beforeEach(async () => {
     instance = await Sample.deployed()
-    // organizer = await accounts[0]
-    // user =  await accounts[1]
+    organizer = await accounts[0]
+    voter = await accounts[1]
+    inspector =  await accounts[2]
+    // console.log(organizer,voter,inspector)
 })
 
-
-  it("set value and get value", async () => {
-    // Set value of 100
-    await instance.set(100, { from: accounts[0] });
-
-    // Get stored value
-    const storedData = await instance.getValue.call();
-
-    assert.equal(storedData, 100, "The value 100 was not stored.");
+  it("set voter Address" , async() => {
+    const tx = await instance.setVoterAddress(voter);
+    assert.isOk(tx)
   });
+
+  it("create Vote" , async() => {
+    await instance.setVoterAddress(voter,{from:organizer})
+    const tx = await instance.setVote("test ballot");
+    // console.log(tx)
+    assert.isOk(tx)
+  });
+
+  it("set inspector Address" , async() => {
+    const tx = await instance.setInspectorAddress(inspector,{from: organizer});
+    assert.isOk(tx)
+  });
+
+  it("view result" , async() => {
+    const tx = await instance.viewResult()
+    // console.log(tx)
+    assert.isOk(tx)
+  });
+
+  it("" , async() => {
+
+  });
+
+  it("" , async() => {
+
+  });
+
+
 });
