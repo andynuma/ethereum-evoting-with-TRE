@@ -1,11 +1,19 @@
-import React from "react"
+import React,{ useContext,useEffect } from "react"
 import { Segment, Header, Message } from "semantic-ui-react"
 import AddressForm from "../AddressForm"
 import { Link } from "react-router-dom"
 import "../../App.css"
+import {Store} from "../../reducers/store"
 
 
 const Organizer = () =>  {
+
+  const {state, dispatch} = useContext(Store)
+
+  useEffect(() => {
+    console.log(state)
+  },[])
+
   return(
     <Segment.Group className="container">
       <Header>

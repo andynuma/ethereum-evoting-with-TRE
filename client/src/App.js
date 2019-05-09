@@ -1,4 +1,4 @@
-import React from "react"
+import React,{ useContext, useEffect } from "react"
 import Sample from "./contracts/Sample"
 import web3  from './web3/provider'
 import VoteForm from "./components/VoteForm"
@@ -6,8 +6,10 @@ import VoteForm from "./components/VoteForm"
 import AddressViewer from "./components/AddressViewer";
 import { Segment, Header } from "semantic-ui-react"
 import "./App.css"
-import AddressForm from "./components/AddressForm";
+import {Store} from "./reducers/store"
 
+
+//TODO:FCに書き換え
 class App extends React.Component{
 
   state = {
@@ -66,8 +68,6 @@ class App extends React.Component{
     await contract.methods.setInspectorAddress(inspectorAddress).send({from:accounts[0]})
   }
 
-
-
   render() {
     const {accounts, contract, vote, end} = this.state
     return (
@@ -90,12 +90,6 @@ class App extends React.Component{
             <p>
               Your Vote : {vote}
             </p>
-          </Segment>
-          {/* <Segment className="item">
-            <ResultView contract={contract} address={accounts} />
-          </Segment> */}
-          <Segment>
-            {/* {end} ? <p></p> : <p>Submitted ! </p> */}
           </Segment>
         </Segment.Group>
 

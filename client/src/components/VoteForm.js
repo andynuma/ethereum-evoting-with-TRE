@@ -6,7 +6,7 @@ const VoteForm = ({address,contract,setVote}) => {
   const [vote, setBallot] = useState("")
 
   useEffect(() => {
-    console.log(address,contract)
+    // console.log(address,contract)
   },[address,contract])
 
   const handleSubmit = (e) =>  {
