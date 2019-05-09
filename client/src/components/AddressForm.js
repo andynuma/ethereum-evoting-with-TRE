@@ -1,19 +1,20 @@
 import React,{ useState } from "react"
 import { Form, Button } from "semantic-ui-react"
 
-const AddressForm = ({contract, address,role}) => {
+const AddressForm = ({role,setAddress}) => {
 
-  const [inputAddress, setAddress ] =  useState("")
+  const [inputAddress, setInputAddress ] =  useState("")
 
   const handleSubmit = (e) =>  {
     e.preventDefault()
     // setVote(vote) // contract.methods
     // setVote(vote)
+    setAddress(inputAddress)
     console.log("submit")
   }
 
   const handleChange = (e) => {
-    setAddress(e.target.value)
+    setInputAddress(e.target.value)
   }
 
   return(

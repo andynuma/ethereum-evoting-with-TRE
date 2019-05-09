@@ -6,7 +6,8 @@ const VoteForm = ({address,contract,setVote}) => {
   const [vote, setBallot] = useState("")
 
   useEffect(() => {
-    // console.log(address,contract)
+    console.log(address,contract)
+    console.log(contract.methods)
   },[address,contract])
 
   const handleSubmit = (e) =>  {
@@ -24,7 +25,7 @@ const VoteForm = ({address,contract,setVote}) => {
       <Form onSubmit={handleSubmit}>
         <Form.Field>
           <label>VoteForm</label>
-          <input placeholder="name" value={vote} onChange={handleChange}/>
+          <input placeholder="candicate name" value={vote} onChange={handleChange}/>
         </Form.Field>
         <Button type="submit">Submit</Button>
       </Form>
