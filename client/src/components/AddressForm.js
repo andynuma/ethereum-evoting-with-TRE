@@ -20,7 +20,7 @@ const AddressForm = ({role,setAddress}) => {
   return(
     <Form onSubmit={handleSubmit}>
       <Form.Field>
-        <label>Set  {role}  Address Form</label>
+        <label>Set  {role}'s  Address Form</label>
         <input placeholder="address" value={inputAddress} onChange={handleChange}/>
       </Form.Field>
       <Button type="submit">Submit</Button>

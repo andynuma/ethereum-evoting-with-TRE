@@ -17,7 +17,7 @@ contract("Sample", accounts => {
 
   it("create Vote" , async() => {
     await instance.setVoterAddress(voter,{from:organizer})
-    const tx = await instance.setVote("test ballot");
+    const tx = await instance.setVote("test ballot",{from:voter});
     // console.log(tx)
     assert.isOk(tx)
   });
@@ -27,17 +27,37 @@ contract("Sample", accounts => {
     assert.isOk(tx)
   });
 
+  it("Can end the Voting" , async() => {
+    const tx =  await instance.endVoting()
+    assert.isOk(tx)
+    const EndSign = await instance.end.call()
+    assert.equal(EndSign, true, "Voting is Ended.")
+  });
+
   it("view result" , async() => {
     const tx = await instance.viewResult()
-    // console.log(tx)
+    assert.isOk(tx)
+    const result = await instance.viewResult().call()
+    console.log(result)
+
+    // Set Vote
+    await instance.setVoterAddress(voter,{from:organizer})
+    await instance.setVote("test ballot",{from:voter});
+    // const array = await instance.ballots.call()
+    console.log(array)
+  });
+
+  it("value set" , async() => {
+    const tx = await instance.setValue(100)
     assert.isOk(tx)
   });
 
-  it("" , async() => {
-
-  });
-
-  it("" , async() => {
+  it("value get" , async() => {
+    const tx = await instance.setValue(100, { from: accounts[0] })
+    const tx2 = await instance.getValue().call();
+    console.log(tx)
+    assert.isOk(tx)
+    assert.equal(tx2, 100," set is not valid")
 
   });
 

@@ -11,6 +11,7 @@ import web3 from "../src/web3/provider"
 import {Provider, Store} from "./reducers/store"
 import Sample from "./contracts/Sample"
 import Spinner from './components/Spinner';
+import Result from './components/Result/Result';
 
 
 const Root = (props) => {
@@ -42,6 +43,7 @@ const Root = (props) => {
       <Route path="/home" component={Home}/>
       <Route path="/organizer" component={Organizer} />
       <Route exact path="/" component={App}/>
+      <Route path="/result" component={Result}/>
       {/* <Redirect path="/home"/> */}
     </Switch>
   )

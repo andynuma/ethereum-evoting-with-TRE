@@ -1,5 +1,5 @@
 import React,{ useContext,useEffect,useState } from "react"
-import { Segment, Header, Message } from "semantic-ui-react"
+import { Segment, Header, Message, Button } from "semantic-ui-react"
 import AddressForm from "../AddressForm"
 import { Link } from "react-router-dom"
 import "../../App.css"
@@ -41,6 +41,17 @@ const Organizer = () =>  {
     }
   }
 
+  const endVoting = async() => {
+    try{
+      //TODO: コントラクトのendをtrueにする処理を書く
+      const result = await state.currentContract.methods.endVoting().send({from:account})
+      console.log(result)
+      console.log("end")
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return(
     <Segment.Group className="container">
       <Header>
@@ -61,6 +72,9 @@ const Organizer = () =>  {
       </Segment>
       <Segment>
         <AddressForm role="Inspector" setAddress={setInspectorAddress}/>
+      </Segment>
+      <Segment>
+        <Button onClick={endVoting}>END VOTE</Button>
       </Segment>
     </Segment.Group>
   )

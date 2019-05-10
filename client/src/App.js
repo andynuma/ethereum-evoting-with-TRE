@@ -3,13 +3,12 @@ import web3  from './web3/provider'
 import VoteForm from "./components/VoteForm"
 // import ResultView from "./components/ResultView"
 import AddressViewer from "./components/AddressViewer";
-import { Segment, Header } from "semantic-ui-react"
+import { Segment, Header, Button } from "semantic-ui-react"
 import "./App.css"
 import {Store} from "./reducers/store"
 
 
-//TODO:FCに書き換え
-const App = () => {
+const App = (props) => {
   const [vote, showVote] = useState("")
   const [account, setAccount] = useState("")
   const { state } = useContext(Store)
@@ -17,18 +16,31 @@ const App = () => {
   useEffect(() =>  {
     console.log("Contract info :",state.currentContract)
     setInitialAccount()
+    console.log(props)
   },[setVote])
 
   // 投票者アドレスでないといけない
   const setVote = async(vote) => {
-    await state.currentContract.methods.setVote(vote).send({from:account})
-    showVote(vote)
+    try{
+      await state.currentContract.methods.setVote(vote).send({from:account})
+      showVote(vote)
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   const setInitialAccount = async() => {
-    const accounts = await web3.eth.getAccounts();
-    setAccount(accounts[0])
-    console.log("Your Account : ", account)
+    try{
+      const accounts = await web3.eth.getAccounts();
+      setAccount(accounts[0])
+      console.log("Your Account : ", account)
+    } catch(err){
+      console.log(err)
+    }
+  }
+
+  const toResultPage = () => {
+    props.history.push("/result")
   }
 
   return (
@@ -52,8 +64,10 @@ const App = () => {
             Your Vote : {vote}
           </p>
         </Segment>
+        <Segment>
+          <Button onClick={toResultPage}>Go to Result Page</Button>
+        </Segment>
       </Segment.Group>
-
     </div>
   )
 }
