@@ -1,4 +1,4 @@
-pragma solidity >0.4.0 <0.6.0;
+pragma solidity >0.4.99 <0.6.0;
 pragma experimental ABIEncoderV2;
 
 import "./Owned.sol";
@@ -74,7 +74,4 @@ contract Sample is Owned {
     function getValue() public returns(uint){
         return value;
     }
-
-
-
 }
