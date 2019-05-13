@@ -6,12 +6,18 @@ import "./Owned.sol";
 contract Sample is Owned {
     address public inspectorAddress;
     address[] public voterAddressArray;
-    string[] public ballots;
+    string[] public ballots = ["test1","test2"];
     mapping(address => string) public votes;
     mapping(address => uint) public voteCount;
     bool public end = false;
 
     uint public value;
+
+    //TODO:これを全ての関数にあとでつける
+    modifier isVotingEnd(){
+        require(end == false, "voting is end");
+        _;
+    }
 
     // set voter address
     function setVoterAddress(address _voterAddress) public {
@@ -40,13 +46,6 @@ contract Sample is Owned {
         voteCount[msg.sender] += 1;
         ballots.push(_vote);
     }
-
-    // sign by organizer
-    // sign by inspector
-    // view result
-    // function viewResultTest() public returns(string memory){
-    //     return "result";
-    // }
 
     function endVoting() public {
         //TODO: onlyOwnerをつけること

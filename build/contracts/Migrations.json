@@ -126,11 +126,11 @@
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "59:7:0",
+              "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
-              },
-              "stateMutability": "nonpayable"
+              }
             },
             "value": null,
             "visibility": "public"
@@ -198,7 +198,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 283,
+                        "referencedDeclaration": 286,
                         "src": "167:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -234,8 +234,7 @@
             "documentation": null,
             "id": 14,
             "implemented": true,
-            "isConstructor": true,
-            "isDeclaredConst": false,
+            "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
@@ -245,7 +244,6 @@
               "parameters": [],
               "src": "139:2:0"
             },
-            "payable": false,
             "returnParameters": {
               "id": 7,
               "nodeType": "ParameterList",
@@ -256,8 +254,7 @@
             "src": "128:56:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
-            "visibility": "public",
-            "kind": "constructor"
+            "visibility": "public"
           },
           {
             "body": {
@@ -285,7 +282,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 283,
+                        "referencedDeclaration": 286,
                         "src": "226:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -409,8 +406,7 @@
             "documentation": null,
             "id": 35,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
@@ -467,7 +463,6 @@
               ],
               "src": "282:16:0"
             },
-            "payable": false,
             "returnParameters": {
               "id": 29,
               "nodeType": "ParameterList",
@@ -478,8 +473,7 @@
             "src": "261:109:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
-            "visibility": "public",
-            "kind": "function"
+            "visibility": "public"
           },
           {
             "body": {
@@ -649,8 +643,7 @@
             "documentation": null,
             "id": 55,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
@@ -696,11 +689,11 @@
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "393:7:0",
+                    "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
-                    },
-                    "stateMutability": "nonpayable"
+                    }
                   },
                   "value": null,
                   "visibility": "internal"
@@ -708,7 +701,6 @@
               ],
               "src": "392:21:0"
             },
-            "payable": false,
             "returnParameters": {
               "id": 41,
               "nodeType": "ParameterList",
@@ -719,8 +711,7 @@
             "src": "376:175:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
-            "visibility": "public",
-            "kind": "function"
+            "visibility": "public"
           }
         ],
         "scope": 57,
@@ -784,11 +775,11 @@
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "59:7:0",
+              "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
-              },
-              "stateMutability": "nonpayable"
+              }
             },
             "value": null,
             "visibility": "public"
@@ -856,7 +847,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 283,
+                        "referencedDeclaration": 286,
                         "src": "167:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -892,8 +883,7 @@
             "documentation": null,
             "id": 14,
             "implemented": true,
-            "isConstructor": true,
-            "isDeclaredConst": false,
+            "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
@@ -903,7 +893,6 @@
               "parameters": [],
               "src": "139:2:0"
             },
-            "payable": false,
             "returnParameters": {
               "id": 7,
               "nodeType": "ParameterList",
@@ -914,8 +903,7 @@
             "src": "128:56:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
-            "visibility": "public",
-            "kind": "constructor"
+            "visibility": "public"
           },
           {
             "body": {
@@ -943,7 +931,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 283,
+                        "referencedDeclaration": 286,
                         "src": "226:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1067,8 +1055,7 @@
             "documentation": null,
             "id": 35,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
@@ -1125,7 +1112,6 @@
               ],
               "src": "282:16:0"
             },
-            "payable": false,
             "returnParameters": {
               "id": 29,
               "nodeType": "ParameterList",
@@ -1136,8 +1122,7 @@
             "src": "261:109:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
-            "visibility": "public",
-            "kind": "function"
+            "visibility": "public"
           },
           {
             "body": {
@@ -1307,8 +1292,7 @@
             "documentation": null,
             "id": 55,
             "implemented": true,
-            "isConstructor": false,
-            "isDeclaredConst": false,
+            "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
@@ -1354,11 +1338,11 @@
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "393:7:0",
+                    "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
-                    },
-                    "stateMutability": "nonpayable"
+                    }
                   },
                   "value": null,
                   "visibility": "internal"
@@ -1366,7 +1350,6 @@
               ],
               "src": "392:21:0"
             },
-            "payable": false,
             "returnParameters": {
               "id": 41,
               "nodeType": "ParameterList",
@@ -1377,8 +1360,7 @@
             "src": "376:175:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
-            "visibility": "public",
-            "kind": "function"
+            "visibility": "public"
           }
         ],
         "scope": 57,
@@ -1395,12 +1377,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x37c51C4D166020424B133828926287B7Cbc9F43A",
-      "transactionHash": "0xc45fb47fc162cd7bee8316a169ababe3a32e24733a88470b03f59c249459f242"
+      "address": "0x266a35352716a7104Ae120871D2989621654d8A3",
+      "transactionHash": "0xf534cf9a56b812a3ebee59d8735cd2b1fd7b1969b743d2c5d8e929291f5b2334"
     }
   },
   "schemaVersion": "3.0.9",
-  "updatedAt": "2019-05-10T17:08:27.092Z",
+  "updatedAt": "2019-05-13T05:50:22.398Z",
   "devdoc": {
     "methods": {}
   },

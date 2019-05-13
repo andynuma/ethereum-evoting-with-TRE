@@ -2,7 +2,7 @@ import React,{ useContext, useEffect, useState } from "react"
 import web3  from '../../../src/web3/provider'
 import {Store} from "../../reducers/store"
 import VoteList from "./VoteList";
-import { Segment, Button } from "../../../node_modules/semantic-ui-react";
+import { Segment, Button } from "semantic-ui-react";
 
 const Result = () => {
 
@@ -12,20 +12,15 @@ const Result = () => {
   const [result, setResult] = useState([])
 
   useEffect(() => {
-    console.log("mounted")
+    // console.log("mounted")
+    // console.log(state.currentContract)
     setInitialAccount()
-    // viewResult()
   },[viewResult])
 
   const setInitialAccount = async() => {
     try{
       const accounts = await web3.eth.getAccounts();
       console.log(accounts)
-      console.log(accounts[0])
-      setAccount(accounts[0])
-      // const tx = await accounts[0]
-      // await setAccount(tx)
-      console.log("Your Account : ", account)
     } catch(err){
       console.log(err)
     }
@@ -33,12 +28,10 @@ const Result = () => {
 
   const viewResult = async() => {
     try{
-      //TODO:contractのコメントアウトを外す
-      const result = await state.currentContract.methods.viewResult().send({from:account})
+      const result = await state.currentContract.methods.viewResult.call().call()
       setResult(result)
+      console.log("Voting result",result)
       console.log("Result button clicked")
-      // setResult(["TEST1","TEST2","TEST3"])
-      console.log(result)
     } catch(err){
       console.log(err)
     }

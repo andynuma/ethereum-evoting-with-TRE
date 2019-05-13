@@ -44,7 +44,8 @@ const Organizer = () =>  {
   const endVoting = async() => {
     try{
       //TODO: コントラクトのendをtrueにする処理を書く
-      const result = await state.currentContract.methods.endVoting().send({from:account})
+      await state.currentContract.methods.endVoting().send({from:account})
+      const result = await state.currentContract.methods.getEndSign.call().call()
       console.log(result)
       console.log("end")
     } catch (err) {
@@ -74,6 +75,7 @@ const Organizer = () =>  {
         <AddressForm role="Inspector" setAddress={setInspectorAddress}/>
       </Segment>
       <Segment>
+        <p>If you want to end Voting click this button.</p>
         <Button onClick={endVoting}>END VOTE</Button>
       </Segment>
     </Segment.Group>
