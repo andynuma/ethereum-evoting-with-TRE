@@ -9,6 +9,7 @@ import web3 from "../../web3/provider"
 
 const Organizer = () =>  {
   const [account, setAccount] = useState("")
+  const [errors, setErrors] =  useState([])
 
   const {state, dispatch} = useContext(Store)
 
@@ -28,6 +29,7 @@ const Organizer = () =>  {
     try{
       await state.currentContract.methods.setVoterAddress(voterAddress).send({from:account})
     } catch(err){
+      setErrors(errors.concat(err))
       console.log(err)
     }
   }
@@ -37,6 +39,7 @@ const Organizer = () =>  {
     try{
       await state.currentContract.methods.setInspectorAddress(inspectorAddress).send({from:account})
     } catch(err){
+      setErrors(errors.concat(err))
       console.log(err)
     }
   }
@@ -49,9 +52,13 @@ const Organizer = () =>  {
       console.log(result)
       console.log("end")
     } catch (err) {
+      setErrors(errors.concat(err))
+
       console.log(err)
     }
   }
+
+  // const displayErrors = (_errors) => _errors.map((text,i) => <p key={i}>{text}</p>)
 
   return(
     <Segment.Group className="container">
@@ -78,6 +85,13 @@ const Organizer = () =>  {
         <p>If you want to end Voting click this button.</p>
         <Button onClick={endVoting}>END VOTE</Button>
       </Segment>
+      {/* <Message>
+        {errors.length > 0 && (
+          <Message>
+            {displayErrors(errors)}
+          </Message>
+        )}
+      </Message> */}
     </Segment.Group>
   )
 }

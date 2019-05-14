@@ -20,19 +20,19 @@ contract Sample is Owned {
     }
 
     // set voter address
-    function setVoterAddress(address _voterAddress) public {
+    function setVoterAddress(address _voterAddress) onlyOwner isVotingEnd public {
         //TODO:onlyOwner
         voterAddressArray.push(_voterAddress);
     }
 
     // set inspector address
-    function setInspectorAddress(address _inspectorAddress) public onlyOwner {
+    function setInspectorAddress(address _inspectorAddress) onlyOwner isVotingEnd public {
         //TODO:onlyOwner
         inspectorAddress = _inspectorAddress;
     }
 
     // create and send vote
-    function setVote(string memory _vote) public {
+    function setVote(string memory _vote) public isVotingEnd {
         // 二重投票防止とアドレス選定
         uint flag = 0;
         require(voteCount[msg.sender] == 0, "Double Voting.");
@@ -47,12 +47,12 @@ contract Sample is Owned {
         ballots.push(_vote);
     }
 
-    function endVoting() public {
+    function endVoting()  onlyOwner isVotingEnd public {
         //TODO: onlyOwnerをつけること
         end = true;
     }
 
-    function getEndSign() public returns(bool){
+    function getEndSign() public isVotingEnd returns(bool){
         return end;
     }
 
