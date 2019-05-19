@@ -52,13 +52,13 @@ contract Sample is Owned {
         end = true;
     }
 
-    function getEndSign() public isVotingEnd returns(bool){
+    function getEndSign() public  returns(bool){
         return end;
     }
 
     function viewResult() public returns(string[] memory){
         //TODO:テスト省略のためにrequireを外しているので注意
-        // require(end == true, "Voting is not END.");
+        require(end == true, "Voting is not END.");
         uint array_length = ballots.length;
         string[] memory arrayMemory = new string[](array_length);
         arrayMemory = ballots;

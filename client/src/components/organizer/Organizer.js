@@ -5,13 +5,13 @@ import { Link } from "react-router-dom"
 import "../../App.css"
 import {Store} from "../../reducers/store"
 import web3 from "../../web3/provider"
-
+import GetEndSign from "../GetEndSign";
 
 const Organizer = () =>  {
   const [account, setAccount] = useState("")
   const [errors, setErrors] =  useState([])
 
-  const {state, dispatch} = useContext(Store)
+  const {state} = useContext(Store)
 
   useEffect(() => {
     console.log(state)
@@ -64,6 +64,7 @@ const Organizer = () =>  {
     <Segment.Group className="container">
       <Header>
         Organizer Page
+        <GetEndSign/>
       </Header>
       <Message>
         <Message.Header>

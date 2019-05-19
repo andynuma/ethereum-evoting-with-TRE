@@ -6,17 +6,19 @@ import AddressViewer from "./components/AddressViewer";
 import { Segment, Header, Button } from "semantic-ui-react"
 import "./App.css"
 import {Store} from "./reducers/store"
+import GetEndSign from "./components/GetEndSign";
 
 
 const App = (props) => {
   const [vote, showVote] = useState("")
   const [account, setAccount] = useState("")
+  const [votingEnd, setVotingEnd] = useState()
+
   const { state } = useContext(Store)
 
   useEffect(() =>  {
     console.log("Contract info :",state.currentContract)
     setInitialAccount()
-    console.log(props)
   },[setVote])
 
   // 投票者アドレスでないといけない
@@ -39,6 +41,7 @@ const App = (props) => {
     }
   }
 
+
   const toResultPage = () => {
     props.history.push("/result")
   }
@@ -47,9 +50,10 @@ const App = (props) => {
     <div className="container">
     <Header>
       Voter Page
+      <GetEndSign votingEnd={votingEnd}/>
     </Header>
       <Segment.Group>
-        {/* <Segment className="item">
+        {/* <Segment classNsame="item">
           <button onClick={() => this.runExample()}>SET</button>
           <p>test : {this.state.storageValue}</p>
         </Segment> */}

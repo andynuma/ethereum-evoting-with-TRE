@@ -8,7 +8,6 @@ const Result = () => {
 
   const {state} =  useContext(Store)
 
-  const [account,setAccount] = useState("")
   const [result, setResult] = useState([])
 
   useEffect(() => {
@@ -41,7 +40,7 @@ const Result = () => {
   return(
     <Segment.Group>
       <Segment>
-        <VoteList address={account} result={result}/>
+        <VoteList result={result}/>
       </Segment>
       <Segment>
         <Button onClick={viewResult}>View Result</Button>

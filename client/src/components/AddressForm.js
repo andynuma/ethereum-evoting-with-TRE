@@ -24,6 +24,9 @@ const AddressForm = ({role,setAddress}) => {
         <input placeholder="address" value={inputAddress} onChange={handleChange}/>
       </Form.Field>
       <Button type="submit">Submit</Button>
+      <p>
+        {inputAddress}
+      </p>
     </Form>
   )
 }

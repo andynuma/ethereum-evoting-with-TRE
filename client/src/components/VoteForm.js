@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from "react"
-import { Form, Button } from "semantic-ui-react"
+import { Form, Button,Message } from "semantic-ui-react"
 
 const VoteForm = ({address,contract,setVote}) => {
 
@@ -12,7 +12,6 @@ const VoteForm = ({address,contract,setVote}) => {
 
   const handleSubmit = (e) =>  {
     e.preventDefault()
-    // setVote(vote) // contract.methods
     setVote(vote)
     console.log("submit : ", vote)
   }
@@ -22,13 +21,15 @@ const VoteForm = ({address,contract,setVote}) => {
   }
 
   return(
-      <Form onSubmit={handleSubmit}>
-        <Form.Field>
-          <label>VoteForm</label>
-          <input placeholder="candicate name" value={vote} onChange={handleChange}/>
-        </Form.Field>
-        <Button type="submit">Submit</Button>
-      </Form>
+    <div>
+        <Form onSubmit={handleSubmit}>
+          <Form.Field>
+            <label>VoteForm</label>
+            <input placeholder="candicate name" value={vote} onChange={handleChange}/>
+          </Form.Field>
+          <Button type="submit">Submit</Button>
+        </Form>
+    </div>
   )
 }
 

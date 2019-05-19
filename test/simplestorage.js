@@ -74,11 +74,8 @@ contract("Sample", async(accounts) => {
     const sign = await instance.getEndSign.call()
     assert.equal(sign, false, "Initializing is fail.")
     console.log(sign)
-    // const tx =  await instance.endVoting({from:organizer})
-    // assert.isOk(tx)
-    const EndSign = await instance.getEndSign.call()
-    console.log(EndSign)
-    // assert.equal(EndSign, true, "Voting is Ended.")
+    const tx =  await instance.endVoting({from:organizer})
+    assert.isOk(tx)
   });
 
   it("only organizer can end voting" , async() => {

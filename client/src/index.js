@@ -21,6 +21,7 @@ const Root = (props) => {
   useEffect(() => {
     setContract()
     props.history.push("/home")
+    console.log({state})
   },[])
 
   const setContract = async() =>  {
@@ -35,7 +36,6 @@ const Root = (props) => {
     // StoreにContractを格納
     await dispatch({type:"SET_CONTRACT", payload:instance})
   }
-
 
   return(
     (state.isLoading) ? <Spinner/> :

@@ -3,7 +3,13 @@ const reducer = (state={}, action) => {
     case "SET_CONTRACT":
       return{
         currentContract: action.payload,
-        isLoading: false
+        isLoading: false,
+        isEnd:false
+      }
+    case "SET_ISEND":
+      return{
+        ...state,
+        isEnd:true
       }
     default :
       return state
