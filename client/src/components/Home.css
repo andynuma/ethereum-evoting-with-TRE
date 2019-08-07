@@ -1,0 +1,15 @@
+.container {
+  font-size: 1rem;
+  /* text-align: center; */
+  /* width: 70%; */
+  /* height: 100vh; */
+  padding: 100px;
+  margin: 0 auto;
+  width: 70%;
+  /* background-color: blue; */
+}
+
+.item{
+  padding: 30px;
+  margin: 30px;
+}

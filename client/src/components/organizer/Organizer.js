@@ -2,16 +2,17 @@ import React,{ useContext,useEffect,useState } from "react"
 import { Segment, Header, Message, Button } from "semantic-ui-react"
 import AddressForm from "../AddressForm"
 import { Link } from "react-router-dom"
-import "../../App.css"
 import {Store} from "../../reducers/store"
 import web3 from "../../web3/provider"
 import GetEndSign from "../GetEndSign";
+import "./Organizer.css"
+
 
 const Organizer = () =>  {
   const [account, setAccount] = useState("")
   const [errors, setErrors] =  useState([])
 
-  const {state} = useContext(Store)
+  const { state } = useContext(Store)
 
   useEffect(() => {
     console.log(state)
@@ -66,7 +67,8 @@ const Organizer = () =>  {
         Organizer Page
         <GetEndSign/>
       </Header>
-      <Message>
+
+      <Message className="item">
         <Message.Header>
           Are you Organizer ?
         </Message.Header>
@@ -76,15 +78,22 @@ const Organizer = () =>  {
           You cannot do anything in this page because your address is not Organizer Address.
         </p>
       </Message>
-      <Segment>
+
+      <Segment className="item" >
         <AddressForm role="Voter" setAddress={setVoterAddress}/>
       </Segment>
-      <Segment>
+
+      {/* <Segment>
         <AddressForm role="Inspector" setAddress={setInspectorAddress}/>
-      </Segment>
-      <Segment>
-        <p>If you want to end Voting click this button.</p>
-        <Button onClick={endVoting}>END VOTE</Button>
+      </Segment> */}
+
+      <Segment className="item">
+        <Message negative className="end" >
+          <p className="endMessage">
+          If you want to end Voting click this button.
+          </p>
+          <Button  color="red" onClick={endVoting}>END VOTE</Button>
+        </Message>
       </Segment>
       {/* <Message>
         {errors.length > 0 && (

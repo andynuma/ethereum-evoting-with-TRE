@@ -21,20 +21,6 @@ const GetEndSign = () => {
     }
   }
 
-  // const handleClick = async() => {
-  //   const res = await state.currentContract.methods.getEndSign.call().call()
-  //   console.log(res)
-  //   setEnd(res)
-  //   console.log(end)
-  // }
-
-
-  // const result = () => (
-    //   <div>
-    //     result
-    //   </div>
-    // )
-
     return(
       (state.isEnd) ?
       (<Message negative>

@@ -1,17 +1,19 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Segment, Header } from "semantic-ui-react"
+import "./Home.css"
+
 
 const Home = () => {
   return(
-    <Segment.Group>
+    <Segment.Group className="container">
       <Header>
       Home
       </Header>
-      <Segment>
+      <Segment className="item">
         <Link to={"/"}>Go to Vote Page</Link>
       </Segment>
-      <Segment>
+      <Segment className="item">
         <Link to={"/organizer"}>Go to Organizer Page</Link>
       </Segment>
     </Segment.Group>

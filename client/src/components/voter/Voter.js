@@ -1,15 +1,14 @@
 import React,{ useContext, useEffect, useState } from "react"
-import web3  from './web3/provider'
-import VoteForm from "./components/VoteForm"
+import web3  from '../../web3/provider'
+import VoteForm from "./VoteForm"
 // import ResultView from "./components/ResultView"
-import AddressViewer from "./components/AddressViewer";
-import { Segment, Header, Button } from "semantic-ui-react"
-import "./App.css"
-import {Store} from "./reducers/store"
-import GetEndSign from "./components/GetEndSign";
+import AddressViewer from "../AddressViewer"
+import { Segment, Header, Button, Message } from "semantic-ui-react"
+import {Store} from "../../reducers/store"
+import GetEndSign from "../GetEndSign";
 
 
-const App = (props) => {
+const Voter = (props) => {
   const [vote, showVote] = useState("")
   const [account, setAccount] = useState("")
   const [votingEnd, setVotingEnd] = useState()
@@ -41,7 +40,6 @@ const App = (props) => {
     }
   }
 
-
   const toResultPage = () => {
     props.history.push("/result")
   }
@@ -60,21 +58,30 @@ const App = (props) => {
         <Segment className="item">
           <AddressViewer contract={state.currentContract} address={account} role="Your"/>
         </Segment>
+
         <Segment className="item">
           <VoteForm contract={state.currentContract} address={account} setVote={setVote}/>
         </Segment>
+
         <Segment>
           <p>
             Your Vote : {vote}
           </p>
         </Segment>
-        <Segment>
-          <Button onClick={toResultPage}>Go to Result Page</Button>
-        </Segment>
+
+        <Segment className="item">
+        <Message negative className="end" >
+          <p className="endMessage">
+            You should vote before go to the result page.
+          </p>
+          <Button  color="red" onClick={toResultPage}> Go to Result Page </Button>
+        </Message>
+
+      </Segment>
       </Segment.Group>
     </div>
   )
 }
 
 
-export default App;
+export default Voter;

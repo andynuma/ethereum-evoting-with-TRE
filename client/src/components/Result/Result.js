@@ -12,7 +12,7 @@ const Result = () => {
 
   useEffect(() => {
     // console.log("mounted")
-    // console.log(state.currentContract)
+    console.log(state)
     setInitialAccount()
   },[viewResult])
 
@@ -28,6 +28,7 @@ const Result = () => {
   const viewResult = async() => {
     try{
       const result = await state.currentContract.methods.viewResult.call().call()
+      // const result = await state.currentContract.methods.viewResult.call()
       setResult(result)
       console.log("Voting result",result)
       console.log("Result button clicked")

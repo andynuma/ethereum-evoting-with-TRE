@@ -1,7 +1,7 @@
 import React,{ useEffect, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Voter from '../src/components/voter/Voter';
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter as Router,Switch, Route,Redirect,withRouter } from "react-router-dom"
@@ -42,7 +42,7 @@ const Root = (props) => {
     <Switch>
       <Route path="/home" component={Home}/>
       <Route path="/organizer" component={Organizer} />
-      <Route exact path="/" component={App}/>
+      <Route exact path="/" component={Voter}/>
       <Route path="/result" component={Result}/>
       {/* <Redirect path="/home"/> */}
     </Switch>
