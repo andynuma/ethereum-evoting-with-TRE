@@ -1,3 +1,4 @@
+// pragma solidity ^0.4.4;
 pragma solidity >0.4.99 <0.6.0;
 pragma experimental ABIEncoderV2;
 
@@ -26,9 +27,9 @@ contract Sample is Owned {
 
     // BallotResult[] public BallotResults;
 
-    function concat(bytes memory a, bytes memory b) internal pure returns (bytes memory) {
-        return abi.encodePacked(a, b);
-    }
+    // function concat(bytes memory a, bytes memory b) internal pure returns (bytes memory) {
+    //     return abi.encodePacked(a, b);
+    // }
 
     // set voter address
     function setVoterAddress(address _voterAddress) onlyOwner isVotingEnd public {
