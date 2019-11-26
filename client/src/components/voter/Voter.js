@@ -6,12 +6,13 @@ import AddressViewer from "../AddressViewer"
 import { Segment, Header, Button, Message } from "semantic-ui-react"
 import {Store} from "../../reducers/store"
 import GetEndSign from "../GetEndSign";
-
+import TestForm from "./TestForm"
 
 const Voter = (props) => {
   const [vote, showVote] = useState("")
   const [account, setAccount] = useState("")
   const [votingEnd, setVotingEnd] = useState()
+  const [word,setWord] = useState("")
 
   const { state } = useContext(Store)
 
@@ -26,6 +27,15 @@ const Voter = (props) => {
       await state.currentContract.methods.setVote(vote).send({from:account})
       showVote(vote)
     } catch(err) {
+      console.log(err)
+    }
+  }
+
+  const testSetWord = async(word) => {
+    try{
+      await state.currentContract.methods.testSetWord(word).send({from:account})
+
+    } catch(err){
       console.log(err)
     }
   }

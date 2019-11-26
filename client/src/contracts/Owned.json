@@ -2,11 +2,18 @@
   "contractName": "Owned",
   "abi": [
     {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
       "constant": true,
       "inputs": [],
       "name": "ownerAddress",
       "outputs": [
         {
+          "internalType": "address",
           "name": "",
           "type": "address"
         }
@@ -14,23 +21,17 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
-    },
-    {
-      "inputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "constructor"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"ownerAddress\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/andy/evoting-private-chain/contracts/Owned.sol\":\"Owned\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/andy/evoting-private-chain/contracts/Owned.sol\":{\"keccak256\":\"0xb2e1e02f68436e00f23faef3a089cedad4393230d2399f4928f2c4f7d5552e0d\",\"urls\":[\"bzzr://0187518973b32c92bd34d7db5a44f8a6391913c8f51c6d0d4d520106e3861836\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060e98061005f6000396000f3fe608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638f84aa09146044575b600080fd5b348015604f57600080fd5b5060566098565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea165627a7a723058203b7d082e213583ce859be5dbdff5978d91f187f730a5958c937ea35ce1f071ab0029",
-  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638f84aa09146044575b600080fd5b348015604f57600080fd5b5060566098565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea165627a7a723058203b7d082e213583ce859be5dbdff5978d91f187f730a5958c937ea35ce1f071ab0029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"ownerAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ryota/codes/time-release-evoting/contracts/Owned.sol\":\"Owned\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ryota/codes/time-release-evoting/contracts/Owned.sol\":{\"keccak256\":\"0xb2e1e02f68436e00f23faef3a089cedad4393230d2399f4928f2c4f7d5552e0d\",\"urls\":[\"bzz-raw://a0b5eb82bd22a70c1803a263858871d37fccee647fe75a580d71fbfdb60e15b5\",\"dweb:/ipfs/QmS1MFVjDDwkfk8BH7F4AaR9ZuFCkGxvnWLWjyPF189agL\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060cf8061005f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80638f84aa0914602d575b600080fd5b60336075565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820797be5790761c8440bb1ffb32bf7f85ca7aa1f25f191e7be8fba3d108063351d64736f6c634300050c0032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80638f84aa0914602d575b600080fd5b60336075565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820797be5790761c8440bb1ffb32bf7f85ca7aa1f25f191e7be8fba3d108063351d64736f6c634300050c0032",
   "sourceMap": "32:233:1:-;;;87:63;8:9:-1;5:2;;;30:1;27;20:12;5:2;87:63:1;133:10;118:12;;:25;;;;;;;;;;;;;;;;;;32:233;;;;;;",
-  "deployedSourceMap": "32:233:1:-;;;;;;;;;;;;;;;;;;;;;;;;53:27;;8:9:-1;5:2;;;30:1;27;20:12;5:2;53:27:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "deployedSourceMap": "32:233:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;32:233:1;;;;;;;;;;;;;;;;;;;53:27;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "pragma solidity >0.4.0 <0.6.0;\n\ncontract Owned {\n    address public ownerAddress;\n\n    constructor() public {\n        ownerAddress = msg.sender;\n    }\n\n    modifier onlyOwner(){\n        require(msg.sender == ownerAddress, \"You are not owner !!\");\n        _;\n    }\n}",
-  "sourcePath": "/Users/andy/evoting-private-chain/contracts/Owned.sol",
+  "sourcePath": "/Users/ryota/codes/time-release-evoting/contracts/Owned.sol",
   "ast": {
-    "absolutePath": "/Users/andy/evoting-private-chain/contracts/Owned.sol",
+    "absolutePath": "/Users/ryota/codes/time-release-evoting/contracts/Owned.sol",
     "exportedSymbols": {
       "Owned": [
         82
@@ -130,7 +131,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 496,
+                        "referencedDeclaration": 555,
                         "src": "133:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -217,7 +218,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 496,
+                            "referencedDeclaration": 555,
                             "src": "194:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -293,10 +294,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        499,
-                        500
+                        558,
+                        559
                       ],
-                      "referencedDeclaration": 500,
+                      "referencedDeclaration": 559,
                       "src": "186:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -349,7 +350,7 @@
     "src": "0:265:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/andy/evoting-private-chain/contracts/Owned.sol",
+    "absolutePath": "/Users/ryota/codes/time-release-evoting/contracts/Owned.sol",
     "exportedSymbols": {
       "Owned": [
         82
@@ -449,7 +450,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 496,
+                        "referencedDeclaration": 555,
                         "src": "133:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -536,7 +537,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 496,
+                            "referencedDeclaration": 555,
                             "src": "194:3:1",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -612,10 +613,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        499,
-                        500
+                        558,
+                        559
                       ],
-                      "referencedDeclaration": 500,
+                      "referencedDeclaration": 559,
                       "src": "186:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -669,11 +670,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.0.9",
-  "updatedAt": "2019-08-06T13:43:41.897Z",
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-11-26T16:05:12.794Z",
   "devdoc": {
     "methods": {}
   },
