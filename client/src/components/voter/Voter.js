@@ -6,36 +6,27 @@ import AddressViewer from "../AddressViewer"
 import { Segment, Header, Button, Message } from "semantic-ui-react"
 import {Store} from "../../reducers/store"
 import GetEndSign from "../GetEndSign";
-import TestForm from "./TestForm"
+import ipfs from "../../ipfs/ipfs"
 
 const Voter = (props) => {
   const [vote, showVote] = useState("")
   const [account, setAccount] = useState("")
   const [votingEnd, setVotingEnd] = useState()
-  const [word,setWord] = useState("")
 
   const { state } = useContext(Store)
 
   useEffect(() =>  {
     console.log("Contract info :",state.currentContract)
     setInitialAccount()
+    console.log(ipfs)
   },[setVote])
 
   // 投票者アドレスでないといけない
-  const setVote = async(vote) => {
+  const setVote = async(vote,rP) => {
     try{
-      await state.currentContract.methods.setVote(vote).send({from:account})
+      await state.currentContract.methods.setVote(vote,rP).send({from:account})
       showVote(vote)
     } catch(err) {
-      console.log(err)
-    }
-  }
-
-  const testSetWord = async(word) => {
-    try{
-      await state.currentContract.methods.testSetWord(word).send({from:account})
-
-    } catch(err){
       console.log(err)
     }
   }
