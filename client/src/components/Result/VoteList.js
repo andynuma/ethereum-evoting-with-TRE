@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import { Segment } from "semantic-ui-react"
 
 const VoteList = ({result}) =>  {
 
@@ -8,12 +9,11 @@ const VoteList = ({result}) =>  {
 
   return(
     <div>
-      <h1>Result</h1>
       <ul>
         {result.map((res, index) =>  (
-          <li key={index}>
+          <Segment key={index}>
             {res}
-          </li>
+          </Segment>
         ))}
       </ul>
     </div>

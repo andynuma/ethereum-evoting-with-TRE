@@ -2,7 +2,7 @@ import React,{ useContext, useEffect, useState } from "react"
 import web3  from '../../../src/web3/provider'
 import {Store} from "../../reducers/store"
 import VoteList from "./VoteList";
-import { Segment, Button } from "semantic-ui-react";
+import { Segment, Button, Header } from "semantic-ui-react";
 
 const Result = () => {
 
@@ -39,14 +39,13 @@ const Result = () => {
 
 
   return(
-    <Segment.Group>
-      <Segment>
-        <VoteList result={result}/>
-      </Segment>
-      <Segment>
+    <div>
+      <h1>Result Page</h1>
         <Button onClick={viewResult}>View Result</Button>
-      </Segment>
-    </Segment.Group>
+      <Segment.Group>
+        <VoteList result={result}/>
+      </Segment.Group>
+    </div>
   )
 }
 

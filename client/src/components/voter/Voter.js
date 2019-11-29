@@ -70,25 +70,16 @@ const Voter = (props) => {
 
         <Segment>
           <p>
-            Your Encrypted Vote : {vote}
+            Your Encrypted Vote（IPFS hash） : {vote}
           </p>
         </Segment>
 
-        <Segment className="item">
-        <Message negative className="end" >
-          <p className="endMessage">
-            You should vote before go to the result page.
-          </p>
-          <Button  color="red" onClick={toResultPage}> Go to Result Page </Button>
-        </Message>
-        <Message positive className="end" >
-          <p className="endMessage">
-            Let's Decrypt !
-          </p>
-          <Button  color="" onClick={toDecryptPage}> Go to Decrypt Page </Button>
-        </Message>
-
-      </Segment>
+          <Segment>
+            <Button onClick={toResultPage}> Go to Result Page </Button>
+          </Segment>
+            <Segment>
+              <Button  color="" onClick={toDecryptPage}> Go to Decrypt Page </Button>
+            </Segment>
       </Segment.Group>
     </div>
   )

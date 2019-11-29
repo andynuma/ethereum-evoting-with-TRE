@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Form, Button,Message, Label, Segment } from "semantic-ui-react"
+import { Form, Button,Message, Label, Segment, Header } from "semantic-ui-react"
 import axios from "axios"
 
 const Decrypt = () => {
@@ -8,7 +8,6 @@ const Decrypt = () => {
   const [rP,setrP] = useState("")
   const [decrpytedVote,setdecrpytedVote] = useState("")
   const [timeKey, setTimekey] = useState("")
-  const [dec,setDec] = useState("")
 
   useEffect(() => {
     getTimekey()
@@ -50,9 +49,9 @@ const Decrypt = () => {
 
   return (
     <div className="container">
-        <Message negative>
-        NOTE : Input ipfs hash !
-        </Message>
+      <Header>
+        Decrypt Page
+      </Header>
       <Segment>
       <Form onSubmit={handleSubmit}>
           <Form.Field>
@@ -65,7 +64,7 @@ const Decrypt = () => {
           </Form.Field>
           <Button type="submit">Submit</Button>
         </Form>
-        <Message positive> Decrypted vote : {decrpytedVote} </Message>
+        <Message > Decrypted vote : {decrpytedVote} </Message>
         </Segment>
     </div>
   )

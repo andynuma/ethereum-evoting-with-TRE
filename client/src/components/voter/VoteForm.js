@@ -28,19 +28,23 @@ const VoteForm = ({address,contract,setVote}) => {
     const Enc = "Enc" + res.data.Enc  // ipfsでは数値のみの文字列がintとして認識されるのでprefixをつけている
     const rP = res.data.rP
     console.log("(Enc)",Enc)
+
     // ipfsに送信するためのcontent作成
     const content_Enc = ipfs.Buffer.from(Enc)
     const content_rP = ipfs.Buffer.from(rP)
     console.log("contents:",content_Enc,content_rP)
+
     // add
     const results_Enc = await ipfs.add(content_Enc)
     const results_rP = await ipfs.add(content_rP)
     console.log("add",results_Enc,results_rP)
+
     // hashを取得
     const Enc_hash = await results_Enc[0].hash
     const rP_hash = await results_rP[0].hash
     console.log("Enc_hash",Enc_hash)
     console.log("rP_hash",rP_hash)
+
     // ipfsのハッシュ値をチェーンに記録
     await setVote(Enc_hash,rP_hash)
     console.log("submitted vote is  ", vote)
