@@ -25,8 +25,9 @@ const VoteForm = ({address,contract,setVote}) => {
     console.log(res.data.Enc)
     console.log(res.data.rP)
     // resからEnc(m)とrPを取り出す
-    const Enc = res.data.Enc
+    const Enc = "Enc" + res.data.Enc  // ipfsでは数値のみの文字列がintとして認識されるのでprefixをつけている
     const rP = res.data.rP
+    console.log("(Enc)",Enc)
     // ipfsに送信するためのcontent作成
     const content_Enc = ipfs.Buffer.from(Enc)
     const content_rP = ipfs.Buffer.from(rP)

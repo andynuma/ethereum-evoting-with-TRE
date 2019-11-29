@@ -23,10 +23,8 @@ contract Sample is Owned {
         _;
     }
 
-
     // set voter address
     function setVoterAddress(address _voterAddress) onlyOwner isVotingEnd public {
-        //TODO:onlyOwner
         voterAddressArray.push(_voterAddress);
     }
 
@@ -37,7 +35,7 @@ contract Sample is Owned {
     }
 
     // create and send vote
-    function setVote(string memory _vote) public isVotingEnd {
+    function setVote(string memory _vote, string memory _rP) public isVotingEnd {
         // 二重投票防止とアドレス選定
         // uint flag = 0;
         //TODO:テスト用に変えているので注意
@@ -50,10 +48,15 @@ contract Sample is Owned {
         // require(flag == 1, "Your address isn't valid.");
         votes[msg.sender] = _vote;
         voteCount[msg.sender] += 1;
-        string memory space = " : 0x";
-        string memory vote = strConnect(_vote, space);
+        string memory fixrP = " , rP: ";
+        string memory fixvote = " , vote: ";
+        string memory v = strConnect(fixvote, _vote);  // vote : _vote
+        string memory r = strConnect(fixrP, _rP);  // rP : _rP
+        string memory voteAndrP = strConnect(v,r); // , vote : obama, rP : eWersweaf...
+        string memory fix = "Address : 0x";
+        string memory fixedAddress = strConnect(fix,toAsciiString(msg.sender)); // 0x + address
 
-        string memory res = strConnect(vote,toAsciiString(msg.sender));
+        string memory res = strConnect(fixedAddress,voteAndrP);
         ballots.push(res);
     }
 

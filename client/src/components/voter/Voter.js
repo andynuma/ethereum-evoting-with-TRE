@@ -41,8 +41,12 @@ const Voter = (props) => {
     }
   }
 
+
   const toResultPage = () => {
     props.history.push("/result")
+  }
+  const toDecryptPage = () => {
+    props.history.push("/decrypt")
   }
 
   return (
@@ -66,7 +70,7 @@ const Voter = (props) => {
 
         <Segment>
           <p>
-            Your Vote : {vote}
+            Your Encrypted Vote : {vote}
           </p>
         </Segment>
 
@@ -76,6 +80,12 @@ const Voter = (props) => {
             You should vote before go to the result page.
           </p>
           <Button  color="red" onClick={toResultPage}> Go to Result Page </Button>
+        </Message>
+        <Message positive className="end" >
+          <p className="endMessage">
+            Let's Decrypt !
+          </p>
+          <Button  color="" onClick={toDecryptPage}> Go to Decrypt Page </Button>
         </Message>
 
       </Segment>

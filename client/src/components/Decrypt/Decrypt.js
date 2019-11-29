@@ -1,1 +1,74 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import { Form, Button,Message, Label, Segment } from "semantic-ui-react"
+import axios from "axios"
+
+const Decrypt = () => {
+
+  const [enc,setEnc] = useState("")
+  const [rP,setrP] = useState("")
+  const [decrpytedVote,setdecrpytedVote] = useState("")
+  const [timeKey, setTimekey] = useState("")
+  const [dec,setDec] = useState("")
+
+  useEffect(() => {
+    getTimekey()
+  },[])
+
+  const getTimekey = async() => {
+    const res = await axios.get(`http://localhost:5000/timeserver/${process.env.REACT_APP_DECRYPTION_TIME}`)
+    // console.log(res.data.sHT0)
+    setTimekey(res.data.sHT0)
+  }
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    // ipfsからデータを取ってくる
+    const enc_res = await axios.get(`https://ipfs.io/ipfs/${enc}`) // QmTZQt72cLAWur8KMVKhD4k1UVgvNLoZcFgSgbpXM4SSVN
+    const rP_res = await axios.get(`https://ipfs.io/ipfs/${rP}`) // QmZYLgyitYrFjiD73iwj4vDidMxgoNc4Emzh1ftFNWvc8N
+    console.log(enc_res.data)
+    console.log(rP_res.data)
+    // console.log(enc_res.data.slice(3))
+    // console.log(timeKey)
+
+    const res = await axios.post("http://localhost:5000/decrypt",{
+      "Enc":enc_res.data.slice(3), // ipfsでは数値のみの文字列がintとして認識されるのでprefixをつけている
+      "rP":rP_res.data,
+      "sHT0":timeKey
+    })
+    // console.log(res.data)
+    await setdecrpytedVote(res.data)
+  }
+
+  const handleEncChange = (e) => {
+    setEnc(e.target.value)
+  }
+
+  const handlerPChange = (e) => {
+    setrP(e.target.value)
+  }
+
+
+  return (
+    <div className="container">
+        <Message negative>
+        NOTE : Input ipfs hash !
+        </Message>
+      <Segment>
+      <Form onSubmit={handleSubmit}>
+          <Form.Field>
+            <label>Enc(m) Form</label>
+            <input placeholder="Encrypted vote" value={enc} onChange={handleEncChange}/>
+          </Form.Field>
+          <Form.Field>
+            <label>rP Form</label>
+            <input placeholder="rP" value={rP} onChange={handlerPChange}/>
+          </Form.Field>
+          <Button type="submit">Submit</Button>
+        </Form>
+        <Message positive> Decrypted vote : {decrpytedVote} </Message>
+        </Segment>
+    </div>
+  )
+}
+
+export default Decrypt;

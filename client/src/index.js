@@ -12,6 +12,7 @@ import {Provider, Store} from "./reducers/store"
 import Sample from "./contracts/Sample"
 import Spinner from './components/Spinner';
 import Result from './components/Result/Result';
+import Decrypt from './components/Decrypt/Decrypt';
 
 
 const Root = (props) => {
@@ -44,6 +45,7 @@ const Root = (props) => {
       <Route path="/organizer" component={Organizer} />
       <Route exact path="/" component={Voter}/>
       <Route path="/result" component={Result}/>
+      <Route path="/decrypt" component={Decrypt}/>
       {/* <Redirect path="/home"/> */}
     </Switch>
   )
