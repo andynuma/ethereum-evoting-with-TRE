@@ -3,29 +3,27 @@ import { Form, Button, Message, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import ipfs from '../../ipfs/ipfs';
 
-const VoteForm = ({ address, contract, setVote }) => {
+const VoteForm = ({ address, contract, setVote, error }) => {
   const [vote, setBallot] = useState('');
   const [EncryptedVote, setEncryptedVote] = useState('');
   const [load, setLoad] = useState(true);
   const [end, setEnd] = useState(false);
-  const [error, setError] = useState('');
 
-  useEffect(() => {
-    console.log(address, contract);
-    console.log(contract.methods);
-  }, [address, contract]);
+  // useEffect(() => {
+  //   console.log(address, contract);
+  //   console.log(contract.methods);
+  // }, [address, contract]);
 
   const handleSubmit = async e => {
     e.preventDefault();
     setLoad(false);
     console.log(process.env.REACT_APP_DECRYPTION_TIME);
-    // //TODO:Enc(m)
     const res = await axios.post('http://localhost:5000/encrypt', {
       m: vote,
       time: process.env.REACT_APP_DECRYPTION_TIME
     });
-    console.log(res.data.Enc);
-    console.log(res.data.rP);
+    console.log('Enc', res.data.Enc);
+    console.log('rP:', res.data.rP);
     // resからEnc(m)とrPを取り出す
     const Enc = 'Enc' + res.data.Enc; // ipfsでは数値のみの文字列がintとして認識されるのでprefixをつけている
     const rP = res.data.rP;
@@ -50,9 +48,11 @@ const VoteForm = ({ address, contract, setVote }) => {
     // ipfsのハッシュ値をチェーンに記録
     try {
       await setVote(Enc_hash, rP_hash);
+      // console.log(res);
       setEnd(true);
     } catch (err) {
-      setError(err.message);
+      console.log(err);
+      // setError(err.message);
     }
     console.log('submitted vote is  ', vote);
 
@@ -63,23 +63,31 @@ const VoteForm = ({ address, contract, setVote }) => {
     setBallot(e.target.value);
   };
 
+  const handleError = (endsign, err) => {
+    if (endsign === true && err === true)
+      return <Message positive> End </Message>;
+    if (err === false) return <Message negative> Error</Message>;
+    return <></>;
+  };
+
   return (
     <>
       <div>
         <Form onSubmit={handleSubmit}>
           <Form.Field>
-            <label> VoteForm </label>
+            <label> VoteForm </label>{' '}
             <input
               placeholder="Input candicate name"
               value={vote}
               onChange={handleChange}
-            />
-          </Form.Field>
-          <Button type="submit"> Submit </Button>
-        </Form>
-        {/* {EncryptedVote} */} <Segment>Your Vote: {vote} </Segment>
-        {load ? <> </> : <Message as="h3">Uploading...</Message>}
-        {end ? <Message positive> End </Message> : <></>}
+            />{' '}
+          </Form.Field>{' '}
+          <Button type="submit"> Submit </Button>{' '}
+        </Form>{' '}
+        {/* {EncryptedVote} */} <Segment> Your Vote: {vote} </Segment>{' '}
+        {load ? <> </> : <Message as="h3">Uploading...</Message>}{' '}
+        {/* {end || error ? <Message positive> End </Message> : <div></div>} */}
+        <div>{handleError(end, error)}</div>
       </div>{' '}
     </>
   );

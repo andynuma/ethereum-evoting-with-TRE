@@ -12,13 +12,14 @@ const Voter = props => {
   const [vote, showVote] = useState('');
   const [account, setAccount] = useState('');
   const [votingEnd, setVotingEnd] = useState();
+  const [error, setError] = useState(true);
 
   const { state } = useContext(Store);
 
   useEffect(() => {
-    console.log('Contract info :', state.currentContract);
+    // console.log('Contract info :', state.currentContract);
     setInitialAccount();
-    console.log(ipfs);
+    // console.log(ipfs);
   }, [setVote]);
 
   // 投票者アドレスでないといけない
@@ -30,6 +31,8 @@ const Voter = props => {
       showVote(vote);
     } catch (err) {
       console.log(err);
+      setError(false);
+      console.log('ERRRPRRR', error);
     }
   };
 
@@ -73,8 +76,11 @@ const Voter = props => {
             contract={state.currentContract}
             address={account}
             setVote={setVote}
+            error={error}
           />{' '}
         </Segment>
+        {/* {error ? <Message negative>ERROR !</Message> : <></>} */}
+        {/* <Segment>{error.message}</Segment> */}
         <Segment>
           <p>Your Encrypted Vote（ IPFS hash）: {vote} </p>{' '}
         </Segment>

@@ -41,6 +41,7 @@ const Decrypt = () => {
     });
     // console.log(res.data)
     setEnd(true);
+    console.log('sHT0', res.data.sHT0);
 
     await setdecrpytedVote(res.data);
   };
@@ -72,8 +73,8 @@ const Decrypt = () => {
           </Form.Field>{' '}
           <Button type="submit"> Submit </Button>{' '}
         </Form>{' '}
-        {load ? <> </> : <Message as="h3">Uploading...</Message>}
-        {end ? <Message positive> End </Message> : <></>}
+        {load ? <> </> : <Message as="h3">Uploading...</Message>}{' '}
+        {end ? <Message positive> End </Message> : <></>}{' '}
         <Message> Decrypted vote: {decrpytedVote} </Message>{' '}
       </Segment>{' '}
     </div>
