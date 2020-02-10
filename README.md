@@ -8,7 +8,7 @@
 - truffle
 - solidity
 - Metamask
-- ehtereum
+- ethereum
 
 ## server set up
 - `git clone https://github.com/andynuma/time_release_encryption`
