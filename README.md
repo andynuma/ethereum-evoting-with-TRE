@@ -7,6 +7,8 @@
 - web3.js
 - truffle
 - solidity
+- Metamask
+- ehtereum
 
 ## server set up
 - `git clone https://github.com/andynuma/time_release_encryption`
