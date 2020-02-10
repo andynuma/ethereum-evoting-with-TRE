@@ -17,5 +17,8 @@
 - `python flask_time_release.py`
 
 
+## TO DO
+- TypeScript
+
 ## NOTICE
 Do NOT change web3 version.
