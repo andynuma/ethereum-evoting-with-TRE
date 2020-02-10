@@ -4,7 +4,6 @@
 
 # stack
 - react
-- redux
 - web3.js
 - truffle
 - solidity
